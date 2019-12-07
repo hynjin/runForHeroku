@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form action="handleHTML.py" method="post" enctype="multipart/form-data">
+            <input type="file" name="erp_file">
+            <input type="form" name="title">
+            <input type="submit">
+        </form>
+
+        <form action="http://localhost:5000/fileUpload" method="post" enctype="multipart/form-data">
+            <input type="file" name="email_file">
+            <input type="form" name="title">
+            <input type="submit">
+        </form>
+    </body>
+</html>
