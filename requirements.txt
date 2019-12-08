@@ -1,1 +1,2 @@
 Flask==1.1.1
+openpyxl=1.4.1
