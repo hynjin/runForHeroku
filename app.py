@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, Response
 from werkzeug import secure_filename
 
-import pandas as pd
+import os
 import taxInvoice
 import datetime
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
 
 @app.route('/')
 def index():
@@ -34,3 +35,11 @@ def upload_file():
         response.headers["Content-Disposition"] = "attachment; filename=%s.xlsx" % fname
         return response
     return render_template('index.html')
+
+@app.errorhandler(404)
+def page_not_found(error):
+    """Custom 404 page."""
+    return render_template('404.html'), 404
+
+if __name__ == '__main__':
+    app.run(debug=True)
