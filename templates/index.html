@@ -1,18 +1,19 @@
+<!doctype html>
+<!-- <html>
+  <title>Upload new File</title>
+   <body>
+     <h1>Upload new File</h1>
+     <form action="http://localhost:5000/uploader" method=post enctype=multipart/form-data>
+       <p><input type=file name=file>
+          <input type=submit value=Upload>
+     </form>
+   </body>
+</html> -->
 <html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <form action="handleHTML.py" method="post" enctype="multipart/form-data">
-            <input type="file" name="erp_file">
-            <input type="form" name="title">
-            <input type="submit">
-        </form>
+   <body>
+      <form action="http://localhost:5000/upload" method=post enctype=multipart/form-data>
+        <p><input type=file name=file><input type=submit value=Upload>
+      </form>
 
-        <form action="http://localhost:5000/fileUpload" method="post" enctype="multipart/form-data">
-            <input type="file" name="email_file">
-            <input type="form" name="title">
-            <input type="submit">
-        </form>
-    </body>
+   </body>
 </html>
