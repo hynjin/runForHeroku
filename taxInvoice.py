@@ -4,13 +4,10 @@ import openpyxl
 import os
 import datetime
 from io import StringIO,BytesIO
-from openpyxl import Workbook
 
 #erp, email : 엑셀파일
-def tax(email):#,email):
-    erpWB = openpyxl.load_workbook('data/erp.xlsx')
-    #emailWB =  openpyxl.load_workbook('data/email.xlsx')
-    #erpWB = openpyxl.load_workbook(erp)
+def tax(erp,email):
+    erpWB = openpyxl.load_workbook(erp)
     emailWB =  openpyxl.load_workbook(email)
     taxWB = openpyxl.load_workbook('data/origin.xlsx')
 
@@ -51,7 +48,7 @@ def tax(email):#,email):
 
     # 전자세금계산서 저장을 위한 이차원 배열
     rowVal = []
-    dt = datetime.datetime.now();
+    dt = datetime.datetime.now()
     for i in range (len(erpVal)):
         temp = []
         for j in range (taxWS.max_column):
