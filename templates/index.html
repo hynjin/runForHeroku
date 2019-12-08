@@ -1,23 +1,71 @@
 <!doctype html>
-<!-- <html>
-  <title>Upload new File</title>
-   <body>
-     <h1>Upload new File</h1>
-     <form action="http://localhost:5000/uploader" method=post enctype=multipart/form-data>
-       <p><input type=file name=file>
-          <input type=submit value=Upload>
-     </form>
-   </body>
-</html> -->
 <html>
-   <body>
-      <form action="http://localhost:5000/upload" method=post enctype=multipart/form-data>
-        <p><input type=file name=erp>
-          <!-- <input type=submit value=Upload>
-      </form> -->
-      <!-- <form action="http://localhost:5000/upload" method=post enctype=multipart/form-data> -->
-        <p><input type=file name=email><input type=submit value=Upload>
-      </form>
+  <title>전자세금계산서 발행</title>
+  <head>
+    <style>
+    /* 태그일떄는 그냥 태그명, id값으로 할 경우는 #id명 */
+      .main_container {
+      width:100%;
+      height:100%;}
 
+      .main_top {
+      width:100%;
+      height:80px;
+      float:left;}
+
+      .main_left {
+      width:50%;
+      height:280px;
+      float:left;}
+
+      .main_right {
+      width:50%;
+      height:280px;
+      float:left;}
+
+      .main_bottom {
+      width:100%;
+      height:150px;
+      float:left;}
+
+      #file_upload {
+        width:200px;
+        height:100px;
+        font-size:18px;}
+
+      #file_submit {
+        width:100px;
+        height:250px;
+        font-size:50px;}
+
+      #middle{
+        position: relative;
+        left: 35%;}
+
+      #left{
+        position: relative;
+        left: 25%;}
+
+    </style>
+  </head>
+   <body>
+     <form action="http://localhost:5000/upload" method=post enctype=multipart/form-data>
+       <div class="main_container">
+         <div class="main_top">
+           <h1 id=middle>전자세금계산서 발행</h1>
+         </div>
+         <div class="main_left">
+           <h2 id =left>ERP 파일을 선택해주세요</h2>
+           <input type=file name=erp value="ERP" id=file_upload>
+         </div>
+         <div class="main_right">
+           <h2 id=left>이메일 파일을 선택해주세요</h2>
+           <input type=file name=email value="이메일" id=file_upload>
+         </div>
+         <div class="main_bottom">
+           <center><input type=submit value="다운로드" id=file_submit></center>
+         </div>
+       </div>
+      </form>
    </body>
 </html>
