@@ -75,7 +75,8 @@ def tax(erp,email):
             elif j==12:
                 temp.append(erpVal[i][erpDic['세액']])
             elif j==14:
-                temp.append(erpVal[i][erpDic['수금일']][:2])
+                date = erpVal[i][erpDic['수금일']]
+                temp.append(date[:2])
             elif j==15:
                 temp.append(dt.strftime("%m")+'월 CCTV용역료')
             elif j==19:
