@@ -69,14 +69,13 @@ def tax(erp,email):
             elif j==8:
                 temp.append(erpVal[i][erpDic['종목']])
             elif j==9:
-                temp.append(erpVal[i][8]) #이메일
+                temp.append(erpVal[i][9]) #이메일
             elif j==11:
                 temp.append(erpVal[i][erpDic['공급가액']])
             elif j==12:
                 temp.append(erpVal[i][erpDic['세액']])
             elif j==14:
-                date = erpVal[i][erpDic['수금일']]
-                temp.append(erpVal[i][erpDic['수금일']][:2])
+                temp.append(erpVal[i][erpDic['수금일자']]%100)
             elif j==15:
                 temp.append(dt.strftime("%m")+'월 CCTV용역료')
             elif j==19:
