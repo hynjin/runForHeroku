@@ -22,8 +22,8 @@ def tax(erp,email):
         #print(emailWS[i][0].value,emailAddress[emailWS[i][0].value])
 
     # erp 수금 기록 열 이름
-    # 사업자번호, 법인명, 대표자, 업태, 종목, 사업장주소, 공급가액, 세액 사용
-    erpDic = {'사업자번호':0,'법인명':1,'대표자':2,'업태':3,'종목':4,'사업장 주소':5,'공급가액':6,'세액':7}
+    # 사업자번호, 법인명, 대표자, 업태, 종목, 사업장주소, 공급가액, 세액, 수금일자 사용
+    erpDic = {'사업자번호':0,'법인명':1,'대표자':2,'업태':3,'종목':4,'사업장 주소':5,'공급가액':6,'세액':7, '수금일자':8}
     erpHash = dict() #열 이름을 키값으로 갖는 셀 위치
     erpName = []
     for c in range (0,erpWS.max_column):
@@ -55,7 +55,7 @@ def tax(erp,email):
             if j==0:
                 temp.append('01')
             elif j==1:
-                temp.append(dt.strftime("%Y%m%d"))
+                temp.append(erpVal[i][erpDic['수금일자']])
             elif j==2:
                 temp.append(erpVal[i][erpDic['사업자번호']])
             elif j==4:
