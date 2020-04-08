@@ -98,7 +98,7 @@ def tax(erp,email):
 
     for i in range (len(rowVal)):
         for j in range (taxWS.max_column):
-            taxWS.cell(i+7,j+1,rowVal[i][j])
+            taxWS.cell(i+7,j+1,rowVal[i][j]).font = openpyxl.styles.Font(color="000000")
             #print(rowVal[i][j])
 
     # taxWB.save('data/test.xlsx')
