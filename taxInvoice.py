@@ -16,16 +16,21 @@ def tax(erp,email):
     taxWS = taxWB[taxWB.sheetnames[0]]
 
     # 이메일 사업자 번호를 키로 해쉬테이블
+    emailDic = {'사업자번호':0, '이메일주소':1}
+    emailHash = dict()
+    for i in range (0,emailWS.max_column):
+        emailHash[emailWS[1][i].value] = emailWS[1][i].coordinate.strip('0123456789') #coordinate:셀 좌표
+        print(emailWS[1][i].value,emailHash[emailWS[1][i].value])
     emailAddress = dict()
-    for i in range(2,emailWS.max_row+1):
-        emailAddress[emailWS[i][0].value] = emailWS[i][1].value
-        #print(emailWS[i][0].value,emailAddress[emailWS[i][0].value])
+    for i in range(3,emailWS.max_row+1):
+        if emailWS[emailHash['사업자번호']+str(i)].value!=None:
+            emailAddress[emailWS[emailHash['사업자번호']+str(i)].value] = emailWS[emailHash['이메일주소']+str(i)].value
+        print(emailWS[emailHash['이메일주소']+str(i)].value,emailWS[emailHash['사업자번호']+str(i)].value)
 
     # erp 수금 기록 열 이름
     # 사업자번호, 법인명, 대표자, 업태, 종목, 사업장주소, 공급가액, 세액, 수금일자 사용
     erpDic = {'사업자번호':0,'법인명':1,'대표자':2,'업태':3,'종목':4,'사업장 주소':5,'공급가액':6,'세액':7, '수금일자':8}
     erpHash = dict() #열 이름을 키값으로 갖는 셀 위치
-    erpName = []
     for c in range (0,erpWS.max_column):
         erpHash[erpWS[2][c].value] = erpWS[2][c].coordinate.strip('0123456789')
         #print(erpWS[2][c].value,erpHash[erpWS[2][c].value])
