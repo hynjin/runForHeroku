@@ -24,7 +24,9 @@ def tax(erp,email):
     emailAddress = dict()
     for i in range(3,emailWS.max_row+1):
         if emailWS[emailHash['사업자번호']+str(i)].value!=None:
-            emailAddress[emailWS[emailHash['사업자번호']+str(i)].value.strip(' ')] = emailWS[emailHash['이메일주소']+str(i)].value
+            etemp = emailWS[emailHash['사업자번호']+str(i)].value.strip(' ')
+        if(etemp != ''):
+            emailAddress[int(etemp)]
         print(emailWS[emailHash['이메일주소']+str(i)].value,emailWS[emailHash['사업자번호']+str(i)].value)
 
     # erp 수금 기록 열 이름
