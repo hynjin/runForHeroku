@@ -22,11 +22,11 @@ def tax(erp,email):
         emailHash[emailWS[1][i].value] = emailWS[1][i].coordinate.strip('0123456789') #coordinate:셀 좌표
         print(emailWS[1][i].value,emailHash[emailWS[1][i].value])
     emailAddress = dict()
-    for i in range(3,emailWS.max_row+1):
+    for i in range(2,emailWS.max_row+1):
         if emailWS[emailHash['사업자번호']+str(i)].value!=None:
             etemp = emailWS[emailHash['사업자번호']+str(i)].value.strip(' ')
         if(etemp != ''):
-            emailAddress[int(etemp)]
+            emailAddress[int(etemp)] = emailWS[emailHash['이메일주소']+str(i)].value
         print(emailWS[emailHash['이메일주소']+str(i)].value,emailWS[emailHash['사업자번호']+str(i)].value)
 
     # erp 수금 기록 열 이름
