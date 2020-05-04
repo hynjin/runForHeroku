@@ -31,7 +31,8 @@ def upload_file():
 
         dt = datetime.datetime.now()
         month = (int(dt.strftime("%m")) + 11)%12
-        fname = str(month)+"월세금계산서"
+        month = str(month)+"월세금계산서"
+        fname = month..encode('utf-8').decode('iso-8859-1')
         #dt.strftime("%m월세금계산서").encode('utf-8').decode('iso-8859-1')
 
         response.headers["Content-Disposition"] = "attachment; filename=%s.xlsx" % fname
