@@ -30,7 +30,9 @@ def upload_file():
         content_type='application/octet-stream')
 
         dt = datetime.datetime.now()
-        fname = dt.strftime("%m월세금계산서").encode('utf-8').decode('iso-8859-1')
+        month = (int(dt.strftime("%m")) + 11)%12
+        fname = str(month)+"월세금계산서"
+        #dt.strftime("%m월세금계산서").encode('utf-8').decode('iso-8859-1')
 
         response.headers["Content-Disposition"] = "attachment; filename=%s.xlsx" % fname
         return response
