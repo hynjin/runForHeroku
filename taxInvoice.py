@@ -83,7 +83,7 @@ def tax(erp,email):
                 temp.append(erpVal[i][erpDic['세액']])
             elif j==14:
                 num = erpVal[i][erpDic['수금일자']]%100
-                if num < 10
+                if num < 10:
                     num = '0' + str(num)
                 temp.append(num)
             elif j==15:
