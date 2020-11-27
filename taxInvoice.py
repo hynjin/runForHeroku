@@ -87,7 +87,7 @@ def tax(erp,email):
                     num = '0' + str(num)
                 temp.append(num)
             elif j==15:
-                temp.append(erpVal[i][erpDic['매수구분']])
+                temp.append(erpVal[i][erpDic['매수구분']]) #품목
             elif j==19:
                 temp.append(erpVal[i][erpDic['공급가액']])
             elif j==20:
