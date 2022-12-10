@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, Response
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 
 import os
 import taxInvoice
@@ -18,6 +18,7 @@ def info():
 
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
+    print('bbbb')
     if request.method == 'POST':
         erp = request.files['erp']
         email = request.files['email']
